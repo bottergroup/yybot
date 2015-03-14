@@ -1,0 +1,9 @@
+{ "name": "yybot",
+  "bin" : { "yybot" : "./bin/run.js" },
+  "description": "irc robot",
+  "version": "0.0.1",
+  "devDependencies": {
+    "sequelize": "~2.0.4"
+  },
+  "main": "lib/bot.js"
+}
