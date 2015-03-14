@@ -3,7 +3,13 @@
   "description": "irc robot",
   "version": "0.0.1",
   "devDependencies": {
-    "sequelize": "~2.0.4"
+    "sequelize": "~2.0.4",
+	"sqlite3":"~3.0.5"
   },
-  "main": "lib/bot.js"
+  "main": "lib/bot.js",
+  "licenses": [
+    {
+      "type": "GPLv3"
+    }
+  ]
 }
