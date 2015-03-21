@@ -7,7 +7,7 @@
   "version": "0.0.1",
   "devDependencies": {
     "bluebird": "^2.9.14",
-    "jugglingdb": "~0.2.14",
+    "jugglingdb": "latest",
     "jugglingdb-sqlite3": "latest",
     "mocha": "^2.2.1",
     "sqlite3": "~3.0.5"

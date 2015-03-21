@@ -48,11 +48,27 @@ describe("io",function(){
 			done();
 		});
 	});
+	var table={};
+		for(var i=0;i<1000;i++){
+			table[Number(i).toString()]=Number(i).toString();
+		}
+	it("fill 1000 speed test",function(done){
+		io.fillAsync("user",table).then(function(err,ins){
+			done();
+		}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
+	});
+	it("getAll speed test",function(done){
+		io.getAllAsync("user").then(function(res){
+			done();
+		}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
+	});
 	it("set",function(done){
 		io.setAsync("user","me","b").then(function(){
 			done();
 		});
 	});
+	
+
 	it("get",function(done){
 		io.getAsync("user","me").then(function(res){
 			assert.equal(res[0].key,"me");
