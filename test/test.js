@@ -25,12 +25,9 @@ describe("commandPaser",function(){
 });
 var r;
 describe("io",function(){
-	var Io;
-	it("io load",function(){
-		Io=require("../lib/tools/io.js");
-	});
-	it("io run",function(done){
-		var io=new Io(["user"]);
+	var Io=require("../lib/tools/io.js");
+	var io=new Io(["user"]);;
+	it("full",function(done){
 		io.updataTablesAsync(["user"]).then(function(){
 			io.setAsync("user","me","b").then(function(){
 				io.getAsync("user","me").then(function(res){
@@ -40,5 +37,41 @@ describe("io",function(){
 				}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
 			});
 		});
+	});
+	it("initDB",function(done){
+		io.initDBAsync([],function(){
+			done();
+		});
+	});
+	it("updataTables",function(done){
+		io.updataTablesAsync(["user"]).then(function(){
+			done();
+		});
+	});
+	it("set",function(done){
+		io.setAsync("user","me","b").then(function(){
+			done();
+		});
+	});
+	it("get",function(done){
+		io.getAsync("user","me").then(function(res){
+			assert.equal(res[0].key,"me");
+			assert.equal(res[0].value,"b");
+			done();
+		}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
+	});
+	it("fill",function(done){
+		io.fillAsync("user",{"good":"李大目","bad":"八爪鱼"}).then(function(err,ins){
+			done();
+		}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
+	});
+	it("getAll",function(done){
+		io.getAllAsync("user").then(function(res){
+			assert.equal(res[0].key,"good");
+			assert.equal(res[0].value,"李大目");
+			assert.equal(res[1].key,"bad");
+			assert.equal(res[1].value,"八爪鱼");
+			done();
+		}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
 	});
 });
