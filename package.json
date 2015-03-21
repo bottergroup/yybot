@@ -1,15 +1,24 @@
-{ "name": "yybot",
-  "bin" : { "yybot" : "./bin/run.js" },
+{
+  "name": "yybot",
+  "bin": {
+    "yybot": "./bin/run.js"
+  },
   "description": "irc robot",
   "version": "0.0.1",
   "devDependencies": {
-    "sequelize": "~2.0.4",
-	"sqlite3":"~3.0.5"
+    "bluebird": "^2.9.14",
+    "jugglingdb": "~0.2.14",
+    "jugglingdb-sqlite3": "latest",
+    "mocha": "^2.2.1",
+    "sqlite3": "~3.0.5"
   },
   "main": "lib/bot.js",
   "licenses": [
     {
       "type": "GPLv3"
     }
-  ]
+  ],
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha ./test/test.js"
+  }
 }
