@@ -5,8 +5,11 @@
 var assert=require("assert");
 
 describe("commandPaser",function(){
-	it("commandPaser test",function(){
-		var Cmd=require("../lib/tools/commandPaser.js");
+	var Cmd;
+	it("commandPaser load",function(){
+		Cmd=require("../lib/tools/commandPaser.js");
+	});
+	it("commandPaser run",function(){
 		var cmd=new Cmd();
 		cmd.setgroup(function(verinfo){
 			if ((verinfo.user=="狗熊")&&(verinfo.room=="游戏1")) return true;return false;
@@ -21,8 +24,11 @@ describe("commandPaser",function(){
 	});
 });
 describe("io",function(){
-	it("io test",function(){
-		var Io=require("../lib/tools/io.js");
+	var Io;
+	it("io load",function(){
+		Io=require("../lib/tools/io.js");
+	});
+	it("io run",function(){
 		var io=new Io(["user"]);
 		var outerr=function(err){console.log(err);done();};
 		io.updataTablesAsync(["user"]).then(function(){
