@@ -19,6 +19,6 @@
     }
   ],
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha ./test/test.js"
+    "test": "node ./node_modules/mocha/bin/mocha --growl ./test/test.js"
   }
 }

@@ -23,10 +23,10 @@ describe("commandPaser",function(){
 		assert.equal(cmd.parse({user:"狗熊",room:"游戏1"},"杀死             李大目"),"to 游戏1:狗熊 kill 李大目");
 	});
 });
-var r;
+
+var Io=require("../lib/tools/io.js");
+var io=new Io(["user"],{log:false});
 describe("io",function(){
-	var Io=require("../lib/tools/io.js");
-	var io=new Io(["user"]);;
 	it("full",function(done){
 		io.updataTablesAsync(["user"]).then(function(){
 			io.setAsync("user","me","b").then(function(){
@@ -59,6 +59,7 @@ describe("io",function(){
 	});
 	it("getAll speed test",function(done){
 		io.getAllAsync("user").then(function(res){
+			//console.log(res);
 			done();
 		}).catch(function(err){if (err!=undefined) {console.log(err);}done();});
 	});
